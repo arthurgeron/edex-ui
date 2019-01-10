@@ -6,7 +6,7 @@ class Terminal {
             this.xTerm = require("xterm").Terminal;
             this.Ipc = require("electron").ipcRenderer;
 
-            this.port = opts.port || 3000;
+            this.port = opts.port || 9999;
             this.cwd = "";
             this.oncwdchange = () => {};
 
@@ -214,7 +214,7 @@ class Terminal {
             this.Ipc = require("electron").ipcMain;
 
             this.renderer = null;
-            this.port = opts.port || 3000;
+            this.port = opts.port || 9999;
 
             this._closed = false;
             this.onclosed = () => {};

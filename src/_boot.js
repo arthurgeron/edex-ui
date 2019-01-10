@@ -159,14 +159,14 @@ app.on('ready', () => {
         customEnv = shellEnv.sync();
     }
 
-    signale.pending(`Creating new terminal process on port ${settings.port || '3000'}`);
+    signale.pending(`Creating new terminal process on port ${settings.port || '9999'}`);
     tty = new Terminal({
         role: "server",
         shell: settings.shell.split(" ")[0],
         params: settings.shell.split(" ").splice(1),
         cwd: settings.cwd,
         env: customEnv || settings.env,
-        port: settings.port || 3000
+        port: settings.port || 9999
     });
     signale.success(`Terminal back-end initialized!`);
     tty.onclosed = (code, signal) => {
@@ -207,7 +207,7 @@ app.on('ready', () => {
 
     // Support for more terminals, used for creating tabs (currently limited to 4 extra terms)
     extraTtys = {};
-    let basePort = settings.port || 3000;
+    let basePort = settings.port || 9999;
     basePort = Number(basePort) + 2;
 
     for (let i = 0; i < 4; i++) {
